@@ -1,0 +1,563 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');*/
+
+/*body{*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*}*/
+
+
+
+.progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem
+}
+
+.media {
+    display: flex;
+    align-items: flex-start
+}
+
+.media-body {
+    flex: 1 1
+}
+
+
+
+.d-none {
+    display: none !important
+}
+
+.d-flex {
+    display: flex !important
+}
+
+@media (min-width: 768px) {
+    .d-md-none {
+        display: none !important
+    }
+}
+
+@media (min-width: 1200px) {
+    .d-xl-none {
+        display: none !important
+    }
+
+    .d-xl-block {
+        display: block !important
+    }
+}
+
+
+
+
+.content-wrapper {
+    /*padding: 0 30px*/
+}
+
+
+
+@media (max-width: 576px) {
+    .main-panel .main-content .content-wrapper {
+        /*padding: 0 15px*/
+    }
+}
+
+
+.email-application .email-app-sidebar {
+    z-index: 3;
+    position: fixed;
+    width: 250px;
+    height: 90vh;
+    border-right: 1px solid #e4e7ed
+}
+
+.email-application .email-app-sidebar .email-app-sidebar-content {
+    position: relative;
+    /*height: 100%;*/
+    /*padding: 20px 25px*/
+}
+
+.email-application .content-overlay.show {
+    background: rgba(0, 0, 0, .9)
+}
+
+.email-application .email-app-content {
+    margin-top: 0;
+    padding: 0;
+    /*min-height: 100%*/
+}
+
+.email-application .email-app-list-mails {
+    position: relative;
+    padding: 0;
+    width: 100%;
+    /*overflow-y: hidden;*/
+    /*background-color: #fff;*/
+    /*height: calc(100vh - 60px)*/
+}
+
+.email-application .email-app-mail-content {
+    float: left;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    /*background-color: #edf2f7;*/
+    /*min-height: 100vh;*/
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out
+}
+
+.email-application .email-app-mail-content-detail
+.email-application .email-app-mail-content-detail {
+    position: relative;
+    padding: 15px;
+    /*max-height: calc(100vh - 60px);*/
+    /*overflow-y: auto*/
+}
+
+.email-application .hide-email-content {
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transform: translate3d(-110%, 0, 0)
+}
+
+.email-application .email-app-list {
+    position: relative;
+    /*height: 100%;*/
+    padding: 0
+}
+
+.email-application .email-app-list p {
+    margin-bottom: .2rem
+}
+
+/*.email-application .list-group-item.active, .email-application .list-group-item.active:focus, .email-application .list-group-item.active:hover {*/
+/*    color: #fff*/
+/*}*/
+
+@media (min-width: 992px) {
+    .email-app-list-mails {
+        width: 30% !important;
+        border-right: 1px solid #e6ecf5;
+        float: left;
+    }
+
+    .email-application .email-app-mail-content {
+        width: 70%
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .email-app-list-mails {
+        width: 35% !important;
+        border-right: 1px solid #e6ecf5;
+        float: left
+    }
+
+    .email-application .email-app-mail-content {
+        width: 65%
+    }
+}
+
+@media (min-width: 1200px) {
+    .email-app-content {
+        margin-left: 250px
+    }
+}
+
+@media (max-width: 767.98px) {
+    .email-app-mail-content {
+        position: absolute !important;
+        top: 0 !important;
+        /*left: 27px !important;*/
+        /*width: 9% !important;*/
+        height: 100%;
+        transition: all 1s ease-in-out;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+        height: 100vh;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .email-application .email-app-sidebar {
+        left: 0
+    }
+}
+
+@media screen and (max-width: 50em) {
+    .content {
+        padding: 0 10px
+    }
+}
+
+.border {
+    border: 1px solid
+}
+
+.border-top {
+    border-top: 1px solid
+}
+
+.border-bottom {
+    border-bottom: 1px solid
+}
+
+.border-left {
+    border-left: 1px solid
+}
+
+.border-right {
+    border-right: 1px solid
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes spin-reverse {
+    0% {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(-1turn)
+    }
+}
+
+hr {
+    border-color: #a8a8a8
+}
+
+.path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite, color 2s ease-in-out infinite;
+    stroke-linecap: round
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px
+    }
+    to {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px
+    }
+}
+
+@keyframes color {
+    0%, to {
+        stroke: #009da0
+    }
+    50% {
+        stroke: #ff8d60
+    }
+    to {
+        stroke: #009da0
+    }
+}
+
+legend {
+    border-bottom: 0
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent
+}
+
+/*a:active, a:focus, button::-moz-focus-inner, button:active, button:focus, button:hover, input[type=button]::-moz-focus-inner, input[type=file] > input[type=button]::-moz-focus-inner, input[type=reset]::-moz-focus-inner, input[type=submit]::-moz-focus-inner, select::-moz-focus-inner {*/
+/*    outline: 0 !important*/
+/*}*/
+
+.form-control:focus {
+    border-color: #009da0 !important
+}
+
+.content-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    z-index: 2;
+    visibility: hidden
+}
+
+.content-overlay.show {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, .6)
+}
+
+.wrapper {
+    position: relative;
+    top: 0;
+    height: 100vh
+}
+
+.app-sidebar {
+    font-family: "Montserrat", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    width: 250px;
+    height: 100vh;
+    box-shadow: 2px 10px 30px 0 rgba(0, 0, 0, .42), 0 4px 25px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    transition: width .3s cubic-bezier(0, 0, .2, 1);
+    transform: translateZ(0);
+    white-space: nowrap;
+    visibility: visible
+}
+
+.app-sidebar:after, .app-sidebar:before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2
+}
+
+.app-sidebar:before {
+    opacity: .33
+}
+
+.app-sidebar:after {
+    z-index: 3;
+    opacity: 1
+}
+
+.app-sidebar[data-background-color=white] {
+    background-color: #fff
+}
+
+.app-sidebar[data-background-color=black] {
+    background-color: #000
+}
+
+.app-sidebar[data-background-color=info] {
+    background-color: #1cbcd8
+}
+
+.app-sidebar[data-background-color=success] {
+    background-color: #0cc27e
+}
+
+.app-sidebar[data-background-color=warning] {
+    background-color: #ff8d60
+}
+
+.main-panel {
+    position: relative;
+    z-index: 2;
+    float: right;
+    transform: translateZ(0);
+    transition: all .33s cubic-bezier(.685, .0473, .346, 1)
+}
+
+.main-panel .main-content {
+    position: relative;
+    transition: all .3s ease;
+    /*min-height: calc(100% - 40px)*/
+}
+
+.main-panel div .footer {
+    border-top: 1px solid #e7e7e7
+}
+
+.main-panel {
+    width: 100%;
+    /*max-height: 100%;*/
+    /*height: calc(100% - 85px);*/
+    /*min-height: calc(100% - 85px)*/
+}
+
+@media (min-width: 992px) {
+    footer {
+        padding-left: 250px
+    }
+}
+
+@media (max-width: 992px) {
+    .app-sidebar {
+        transition: transform .4s cubic-bezier(.25, .8, .25, 1);
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0
+        }
+        to {
+            opacity: 1
+        }
+    }
+}
+
+.w-100 {
+    width: 100% !important
+}
+
+a {
+    cursor: pointer
+}
+
+.round {
+    border-radius: 1.5rem
+}
+
+
+
+@media (min-width: 992px) {
+    .app-sidebar {
+        background: transparent !important
+    }
+}
+
+/*! *  Weather Icons 2.0 *  Updated August 1, 2015 *  Weather themed icons for Bootstrap *  Author - Erik Flowers - erik@helloerik.com *  Email: erik@helloerik.com *  Twitter: http://twitter.com/Erik_UX *  ------------------------------------------------------------------------------ *  Maintained at http://erikflowers.github.io/weather-icons * *  License *  ------------------------------------------------------------------------------ *  - Font licensed under SIL OFL 1.1 - *    http://scripts.sil.org/OFL *  - CSS, LESS and SCSS are licensed under MIT License - *    http://opensource.org/licenses/mit-license.html *  - Documentation licensed under CC BY 3.0 - *    http://creativecommons.org/licenses/by/3.0/ *  - Inspired by and works great as a companion with Font Awesome *    "Font Awesome by Dave Gandy - http://fontawesome.io" */
+.wi {
+    display: inline-block;
+    font-family: "weathericons";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: none
+}
+
+.handle {
+    padding: 0 5px;
+    margin-right: 5px;
+    background-color: rgba(0, 0, 0, .4);
+    cursor: move
+}
+
+@keyframes "cd-enter-right" {
+    0% {
+        opacity: 0;
+        transform: translateX(100%)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@keyframes "cd-enter-left" {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+input[type=checkbox].switch, input[type=radio].switch {
+    opacity: 0
+}
+
+/*! * Cropper v@VERSION * https://github.com/fengyuanchen/cropper * * Copyright (c) 2014-@YEAR Fengyuan Chen and contributors * Released under the MIT license * * Date: @DATE */
+#error {
+    background-size: 100% 100%;
+    background-repeat: no-repeat
+}
+
+.bg-gray-100 {
+    background-color: #f7fafc
+}
+
+.text-gray-900 {
+    color: #111827
+}
+
+.bg-gray-200 {
+    background-color: #edf2f7
+}
+
+.rounded-lg {
+    border-radius: .5rem
+}
+
+
+.email-app-list-mails {
+    /*background: #ccc;*/
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.email-app-mail-content {
+    /*background: #ddd;*/
+    height: 100vh;
+
+}
+
+.email-application .email-app-sidebar {
+    height: 100vh;
+}
+
+.email-app-mail-content-detail, .email-app-mail-content {
+    overflow-y: auto;
+}
+
+.active, .list-group-item.active{
+    background: #2f89fc;
+}
+
+.text-xxs {
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+}
+.active {
+    background-color: #5c90f7;
+    color: white;
+}
+.bg-button-blue {
+    background-color: #3B82F6;
+    color: white;
+}
+.bg-button-gray {
+    background-color: #718096;
+    color: white;
+}
+
+.bg-button-green{
+    color:white;
+    background-color: green;
+}
