@@ -4,7 +4,22 @@
 /*    font-family: 'Poppins', sans-serif;*/
 /*}*/
 
+textarea.inlineedit {
+    background-color: #ccc;
+    border: 1;
+    padding: 5px;
+    resize: none;
+    min-height: calc(100vh - 60px);
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: #0a160a;
+    border: 1px solid #ddd;
+}
 
+.markdown {
+    min-height: calc(100vh - 60px);
+}
 
 .progress {
     display: flex;
@@ -23,7 +38,6 @@
 .media-body {
     flex: 1 1
 }
-
 
 
 .d-none {
@@ -51,12 +65,9 @@
 }
 
 
-
-
 .content-wrapper {
     /*padding: 0 30px*/
 }
-
 
 
 @media (max-width: 576px) {
@@ -72,6 +83,11 @@
     width: 250px;
     height: 90vh;
     border-right: 1px solid #e4e7ed
+}
+
+.top-user, side {
+    width: 250px;
+
 }
 
 .email-application .email-app-sidebar .email-app-sidebar-content {
@@ -144,7 +160,7 @@
 /*    color: #fff*/
 /*}*/
 
-@media (min-width: 992px) {
+@media (min-width: 780px) {
     .email-app-list-mails {
         width: 30% !important;
         border-right: 1px solid #e6ecf5;
@@ -438,7 +454,6 @@ a {
 }
 
 
-
 @media (min-width: 992px) {
     .app-sidebar {
         background: transparent !important
@@ -467,37 +482,6 @@ a {
     cursor: move
 }
 
-@keyframes "cd-enter-right" {
-    0% {
-        opacity: 0;
-        transform: translateX(100%)
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0)
-    }
-}
-
-@keyframes "cd-enter-left" {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%)
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0)
-    }
-}
-
-input[type=checkbox].switch, input[type=radio].switch {
-    opacity: 0
-}
-
-/*! * Cropper v@VERSION * https://github.com/fengyuanchen/cropper * * Copyright (c) 2014-@YEAR Fengyuan Chen and contributors * Released under the MIT license * * Date: @DATE */
-#error {
-    background-size: 100% 100%;
-    background-repeat: no-repeat
-}
 
 .bg-gray-100 {
     background-color: #f7fafc
@@ -536,7 +520,7 @@ input[type=checkbox].switch, input[type=radio].switch {
     overflow-y: auto;
 }
 
-.active, .list-group-item.active{
+.active, .list-group-item.active {
     background: #2f89fc;
 }
 
@@ -544,20 +528,31 @@ input[type=checkbox].switch, input[type=radio].switch {
     font-size: 0.6rem;
     line-height: 0.6rem;
 }
+
 .active {
     background-color: #5c90f7;
     color: white;
 }
+
 .bg-button-blue {
     background-color: #3B82F6;
     color: white;
 }
+
 .bg-button-gray {
     background-color: #718096;
     color: white;
 }
 
-.bg-button-green{
-    color:white;
+.bg-button-green {
+    color: white;
     background-color: green;
+}
+
+/*span, div{*/
+/*    border: 1px solid #000;*/
+/*}*/
+
+.text-react {
+    color: #61DBFB;
 }

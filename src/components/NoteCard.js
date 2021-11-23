@@ -22,7 +22,7 @@ function NoteCard(props, {isDragging, id_}) {
             type: ItemTypes.CARD,
             item: {note},
             collect: (monitor) => ({
-                opacity: monitor.isDragging() ? 0.5 : 1,
+                opacity: monitor.isDragging() ? 0.1 : 1,
             }),
             end: (item, monitor) => {
                 const dropResult = monitor.getDropResult();
@@ -36,7 +36,7 @@ function NoteCard(props, {isDragging, id_}) {
     );
 
     const getIsActive = () => {
-        return note.id === props.id ? "active" : "";
+        // return note.id === props.id ? "active" : "";
     };
 
     useEffect(() => {
@@ -54,6 +54,7 @@ function NoteCard(props, {isDragging, id_}) {
         }
     };
     return (
+
         <Link
             ref={dragRef}
             style={{opacity}}
@@ -65,6 +66,7 @@ function NoteCard(props, {isDragging, id_}) {
             }}
             to={"/"}
             className={`block px-6 pt-3 pb-4 bg-white border-t ${getIsActive()}`}
+
         >
             <div className="flex justify-between">
                 <span className="text-sm font-semibold ">{note.title} </span><span className={`text-sm text-gray-500 ${getIsActive()}`}><time dateTime="1637079300000">5 days ago</time></span>

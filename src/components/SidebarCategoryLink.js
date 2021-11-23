@@ -31,7 +31,7 @@ const SidebarCategoryLink = (props) => {
 
     const getIsActive = () => {
         // return category.id === props.id ? "active" : "";
-        return (category.id === props.id) ? "bg-gray-200 font-bold" : "";
+        return (category.id === props.id) ? "bg-blue-500 font-bold" : "";
 
     };
     const click = () => {
@@ -49,20 +49,30 @@ const SidebarCategoryLink = (props) => {
             to="/"
             ref={drop}
             role={"SidebarCategoryLink"}
-            className={`sidebarlink ml-2 hover:bg-gray-200 text-gray-700 mt-1 -mx-3 px-3 py-2 flex items-center justify-between text-sm font-medium rounded-lg ${getIsActive()}`}
+            className={`py-2 pl-10 pr-6 block text-sm text-gray-100 hover:bg-blue-500 hover:text-white  ${getIsActive()} ${isActive?"bg-gray-800 text-white":""} `}
 
         >
-			<span className="inline-flex items-center">
-				<span className="leading-normal"><FaFolder className="w-3 h-3 text-yellow-500"/></span>
-				<span className={`ml-2 ${(category.id === props.id) ? "text-black" : ""}`}>
-					{isActive ? "Release to drop" : (category.title)}
-				</span>
-			</span>
-            {category.count !== 0 ? (
-                <span className="w-10 text-center py-1 text-xs font-semibold rounded-full text-gray-700 bg-gray-300">
-					{category.count}
-				</span>
-            ) : null}
+            <span className={`flex justify-between items-center`}>
+                <span><FaRegFolder className={`text-yellow-500`}/></span>
+                <span className={`flex-grow pl-2`}>{isActive ? "Release to drop" : (category.title)}</span>
+                {category.count !== 0
+                    ? (<span className={`w-8 text-center py-1 text-xs font-semibold rounded-full text-white bg-gray-800`}>{category.count}</span>)
+                    : (<span className={`w-8 py-1 `}></span>)}
+            </span>
+			{/*<span className="inline-flex items-center">*/}
+			{/*	<span className="leading-normal">*/}
+            {/*        <FaFolder className="w-3 h-3 text-yellow-500"/>*/}
+            {/*    </span>*/}
+			{/*	<span className={`ml-2 ${(category.id === props.id) ? "text-black" : ""}`}>*/}
+			{/*		{isActive ? "Release to drop" : (category.title)}*/}
+			{/*	</span>*/}
+			{/*</span>*/}
+            {/*{category.count !== 0 ? (*/}
+            {/*    <span className="w-10 text-center py-1 text-xs font-semibold rounded-full text-gray-700 bg-gray-300">*/}
+			{/*		{category.count}*/}
+			{/*	</span>*/}
+            {/*) : null}*/}
+            {/*{isActive ? "Release to drop" : (category.title)}*/}
         </Link>
     );
 };

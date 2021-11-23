@@ -1,12 +1,11 @@
 import {Link, BrowserRouter as Router} from "react-router-dom";
 import {useEffect, useState} from "react/cjs/react.development";
 import CategoryService from "../service/CategoryService";
-import {FaRegFolder, FaInbox, FaPlusCircle} from "react-icons/fa";
+import {FaRegFolder, FaInbox, FaFolderPlus, FaReact} from "react-icons/fa";
 import Modal from "react-modal";
 import NotesService from "../service/NotesService";
 import ReactTooltip from "react-tooltip";
 import SidebarCategoryLink from "./SidebarCategoryLink";
-import {Offcanvas, Button} from "react-bootstrap";
 
 function Nav(props) {
     const customStyles = {
@@ -19,6 +18,7 @@ function Nav(props) {
             transform: "translate(-50%, -50%)",
             width: "30em",
             height: "12em",
+            zIndex: 1200
         },
         overlay: {
             backgroundColor: "rgba(0, 0, 0, 0.75)",
@@ -36,58 +36,59 @@ function Nav(props) {
 
     /**************************************** */
     // const fetchJson = (url) => fetch(url).then((r) => r.json());
-
+    //
     // const getResult = (parent) =>
-    // 	fetchJson(`http://localhost:4000/categories/byparent/${parent}`).then(
-    // 		(children) => Promise.all(children.map(getResultAux))
-    // 	);
-
+    //     fetchJson(`http://localhost:4000/categories/byparent/${parent}`).then(
+    //         (children) => Promise.all(children.map(getResultAux))
+    //     );
+    //
     // const getResultAux = async (t = {}) => ({
-    // 	...t,
-    // 	children: await getResult(t.id),
+    //     ...t,
+    //     children: await getResult(t.id),
     // });
-
+    //
     // const getNode = (data) => {
-    // 	return (
-    // 		<ul >
-    // 			{data.map((item) => (
-    // 				<li>
-    // 					<label htmlFor={item.id}>{item.title}</label>
-    // 					<input type="checkbox" id={item.id} />
-    // 					{/* <Link to="/">{item.title}</Link> */}
-    // 					<ul >
-    // 						{item.children && item.children.length
-    // 							? item.children.map((subItem) => (
-    // 									<li>
-    // 										{/* <Link to="/">{subItem.title}</Link> */}
-    // 										<label htmlFor={subItem.id}>
-    // 											{subItem.title}
-    // 										</label>
-    // 										<input
-    // 											type="checkbox"
-    // 											id={subItem.id}
-    // 										/>
-    // 										<ul >
-    // 											{subItem.children &&
-    // 											subItem.children.length
-    // 												? subItem.children.map(
-    // 														(subSubItem) => (
-    // 															<li>
-    // 																<Link to="/">{subSubItem.title}</Link>
-    // 															</li>
-    // 														)
-    // 												  )
-    // 												: null}
-    // 										</ul>
-    // 									</li>
-    // 							  ))
-    // 							: null}
-    // 					</ul>
-    // 				</li>
-    // 			))}
-    // 		</ul>
-    // 	);
+    //     return (
+    //         <ul>
+    //             {data.map((item) => (
+    //                 <li>
+    //                     <label htmlFor={item.id}>{item.title}</label>
+    //                     <input type="checkbox" id={item.id}/>
+    //                     {/* <Link to="/">{item.title}</Link> */}
+    //                     <ul>
+    //                         {item.children && item.children.length
+    //                             ? item.children.map((subItem) => (
+    //                                 <li>
+    //                                     {/* <Link to="/">{subItem.title}</Link> */}
+    //                                     <label htmlFor={subItem.id}>
+    //                                         {subItem.title}
+    //                                     </label>
+    //                                     <input
+    //                                         type="checkbox"
+    //                                         id={subItem.id}
+    //                                     />
+    //                                     <ul>
+    //                                         {subItem.children &&
+    //                                         subItem.children.length
+    //                                             ? subItem.children.map(
+    //                                                 (subSubItem) => (
+    //                                                     <li>
+    //                                                         <Link to="/">{subSubItem.title}</Link>
+    //                                                     </li>
+    //                                                 )
+    //                                             )
+    //                                             : null}
+    //                                     </ul>
+    //                                 </li>
+    //                             ))
+    //                             : null}
+    //                     </ul>
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
     // };
+
     /******************************************* */
 
     function openModal() {
@@ -101,8 +102,8 @@ function Nav(props) {
 
     useEffect(() => {
         // (async () => {
-        // 	let response = await getResult(0);
-        // 	setTreeData(response);
+        //     let response = await getResult(0);
+        //     setTreeData(response);
         // })();
 
         setCategoryId(props.categoryId);
@@ -116,25 +117,14 @@ function Nav(props) {
         CategoryService.getAll()
             .then((result) => {
                 setMenu([
-                    // {
-                    //     id: "allnotes",
-                    //     text: "All notes",
-                    //     icon: <FaInbox/>,
-                    //     link: true,
-                    //     submenu: [],
-                    //     count: totalNotes,
-                    // },
                     {
-                        id: "noteboks",
-                        text: "Notebooks",
-                        // icon: <FaRegFolder/>,
+                        id: "allnotes",
+                        text: "All notebooks",
+                        icon: <FaInbox/>,
                         link: false,
                         submenu: result.data,
                         count: 0,
-                        actionIcon: {
-                            tooltip: "Create notebook",
-                            icon: <FaPlusCircle onClick={openModal}/>,
-                        },
+
                     },
                 ]);
             })
@@ -179,54 +169,116 @@ function Nav(props) {
 
     return (
         <>
-
-            {menu.map((item) => {
-                return (
-                    <div key={item.id}>
-                        {item.link ? (
-                            <>
-                            {/*<Link*/}
-                            {/*    key={"cat-" + item.id}*/}
-                            {/*    id={"cat-" + item.id}*/}
-                            {/*    onClick={(e) => {*/}
-                            {/*        props.categoryClicked(item.id);*/}
-                            {/*        onClick(item.id);*/}
-                            {/*    }}*/}
-                            {/*    to="/"*/}
-                            {/*    className={`${getIsActive(item)}`}*/}
-                            {/*>*/}
-							{/*			<span>*/}
-							{/*				<span>{item.icon}</span>*/}
-							{/*				<span>{item.text}</span>*/}
-							{/*			</span>*/}
-                            {/*    <span>{totalNotes}</span>*/}
-                            {/*</Link>*/}
-                            </>
-                        ) : (
-                           <></>
-                        )}
-                        <h1><a href="index.html" className="logo">Notebooks</a></h1>
-
-                        <ul>
-                            {item.submenu.map((subitem) => {
-                                return (
-                                        <SidebarCategoryLink
-                                            id={id}
-                                            key={
-                                                "category-" + subitem.id
-                                            }
-                                            category={subitem}
-                                            categoryClicked={
-                                                props.categoryClicked
-                                            }
-                                            setId={onClick}
-                                        />
-                                );
-                            })}
-                        </ul>
+            <div class="flex flex-col sm:flex-row sm:justify-around">
+                <div class="w-64 h-screen bg-gray-800">
+                    <div class="flex items-center justify-center mt-10">
+                        <FaReact className={`w-10 h-10 font-bold text-react`}/>
                     </div>
-                );
-            })}
+
+                    <nav class="mt-8">
+                        <div>
+                            <button class="w-full flex justify-between items-center py-3 px-6 text-gray-100 cursor-pointer hover:bg-gray-700 hover:text-gray-100 focus:outline-none">
+                        <span class="flex items-center">
+                            <FaInbox className={`h-5 w-5`}/>
+
+                            <span class="mx-4 font-medium">Notebooks</span>
+                        </span>
+                                <span>
+                        </span>
+                            </button>
+                            <div class="bg-gray-700">
+                                {menu.map((item) => {
+                                    return (
+                                        <>
+                                            {item.submenu.map((subitem) => {
+                                                return (
+                                                    <SidebarCategoryLink
+                                                        id={id}
+                                                        key={
+                                                            "category-" + subitem.id
+                                                        }
+                                                        category={subitem}
+                                                        categoryClicked={
+                                                            props.categoryClicked
+                                                        }
+                                                        setId={onClick}
+                                                    />
+                                                )
+                                            })}
+                                        </>
+                                    )
+                                })}
+
+                                {/*<a class="py-2 px-16 block text-sm text-gray-100 hover:bg-blue-500 hover:text-white" href="#">Manage*/}
+                                {/*    Accounts</a>*/}
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            {/*    <div className="mt-2 -mx-3 px-3 py-1 flex items-center justify-between text-sm font-medium ">*/}
+            {/*                <span className="flex items-center">*/}
+            {/*                    <span className="text-gray-500 text-sm font-semibold text-gray-600 uppercase tracking-wider">*/}
+            {/*                    Notebooks*/}
+            {/*                    </span>*/}
+            {/*                </span>*/}
+            {/*        <span className="w-10 t py-1 text-xs font-medium rounded-full text-gray-700 bg-gray-300_">*/}
+            {/*                 <span className="float-right text-gray-300">*/}
+            {/*                    <button*/}
+            {/*                        to={"/"}*/}
+            {/*                        onClick={openModal}*/}
+            {/*                        data-tip={`New notebook`}*/}
+            {/*                    >*/}
+            {/*        <FaFolderPlus className={`h-4 w-4 text-gray-400 hover:text-gray-600`}/>*/}
+            {/*    </button>*/}
+            {/*</span>*/}
+            {/*</span>*/}
+            {/*    </div>*/}
+            {/*    {menu.map((item) => {*/}
+            {/*        return (*/}
+            {/*            <>*/}
+            {/*                <Link*/}
+            {/*                    key={"cat-" + item.id}*/}
+            {/*                    id={"cat-" + item.id}*/}
+            {/*                    onClick={(e) => {*/}
+            {/*                        props.categoryClicked(item.id);*/}
+            {/*                        onClick(item.id);*/}
+            {/*                    }}*/}
+            {/*                    to="/"*/}
+            {/*                    className={`mt-2 -mx-3 px-3 py-2 flex items-center justify-between text-sm font-medium rounded-lg  hover:bg-gray-200 ${getIsActive(item)}`}*/}
+            {/*                >*/}
+            {/*						<span className="inline-flex align-baseline items-center">*/}
+            {/*							<span className="leading-normal">*/}
+            {/*								{item.icon}*/}
+            {/*							</span>*/}
+            {/*							<span className="ml-2 text-gray-700">*/}
+            {/*								{item.text}*/}
+            {/*							</span>*/}
+            {/*						</span>*/}
+            {/*                    <span className="w-10 text-center py-1 text-xs font-semibold rounded-full text-gray-700 bg-gray-300">*/}
+            {/*                            {totalNotes}*/}
+            {/*                        </span>*/}
+            {/*                </Link>*/}
+            {/*                <ul>*/}
+            {/*                    {item.submenu.map((subitem) => {*/}
+            {/*                        return (*/}
+            {/*                            <SidebarCategoryLink*/}
+            {/*                                id={id}*/}
+            {/*                                key={*/}
+            {/*                                    "category-" + subitem.id*/}
+            {/*                                }*/}
+            {/*                                category={subitem}*/}
+            {/*                                categoryClicked={*/}
+            {/*                                    props.categoryClicked*/}
+            {/*                                }*/}
+            {/*                                setId={onClick}*/}
+            {/*                            />*/}
+            {/*                        );*/}
+            {/*                    })}*/}
+            {/*                </ul>*/}
+            {/*            </>*/}
+            {/*        );*/}
+            {/*    })}*/}
             <Modal
                 isOpen={modalIsOpen}
                 // onAfterOpen={afterOpenModal}

@@ -16,7 +16,7 @@ const InlineEdit = ({ value, setValue, onBlur }) => {
   
 	return (
 		<textarea
-			
+			className={`inlineedit w-full`}
 			placeholder="Just start typing"
 			id="notebox"
 			aria-label="Note"
